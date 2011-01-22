@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{Add user defined ordering to ActiveRecord}
   gem.description = %Q{Add user defined ordering to ActiveRecord}
   gem.email = "jebarker@gmail.com"
-  gem.authors = ["John Barker"]
+  gem.authors = ["Darcy Laycock", "John Barker"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
