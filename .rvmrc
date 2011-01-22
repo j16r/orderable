@@ -1,0 +1,7 @@
+rvm use ree@orderable --create --install >/dev/null 2>&1
+
+if [[ -s "./orderable.gems" ]]; then
+  if ! rvm gemset import orderable.gems >/dev/null 2>&1; then
+    echo "ERROR: Unable to bootstrap the gems" >&2
+  fi
+fi
