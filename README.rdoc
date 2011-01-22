@@ -1,6 +1,37 @@
 = orderable
 
-Description goes here.
+User customizeable ordering for active records.
+
+== How to use
+
+Add a field to keep track of the ordering position to your model:
+
+  class AddOrderablePositionToPosition < ActiveRecord::Migration
+    def self.up
+      add_column :positions, :order_position, :integer
+    end
+
+    def self.down
+      remove_column :positions, :order_position
+    end
+  end
+
+Include Orderable in your model
+
+  class Position < ActiveRecord::Base
+    include Orderable
+
+Specify the column to use for ordering:
+
+  orderable_field_is :order_position
+
+Now get the records back in order:
+
+  Position.in_order.all
+
+Or update the ordering:
+
+  Position.update_order([0, 3, 2, 1])
 
 == Contributing to orderable
  
@@ -14,6 +45,5 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 John Barker. See LICENSE.txt for
+Copyright (c) 2011 Darcy Laycock, John Barker. See LICENSE.txt for
 further details.
-
