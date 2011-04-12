@@ -6,7 +6,7 @@ module Orderable
   end
 
   def self.adapter
-    User.configurations[Rails.env]["adapter"]
+    ActiveRecord::Base.connection.adapter_name.downcase
   end
 
   module ClassMethods
