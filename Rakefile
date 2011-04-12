@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/excepttheweasel/orderable"
   gem.license = "MIT"
   gem.summary = %Q{Add user defined ordering to ActiveRecord}
-  gem.description = %Q{Add user defined ordering to ActiveRecord}
+  gem.description = %Q{Add user defined ordering to ActiveRecord, supports MySQL and PostgreSQL.}
   gem.email = "jebarker@gmail.com"
   gem.authors = ["Darcy Laycock", "John Barker"]
   gem.add_runtime_dependency ['activesupport', 'activerecord']
