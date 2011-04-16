@@ -19,10 +19,10 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Add user defined ordering to ActiveRecord, supports MySQL and PostgreSQL.}
   gem.email = "jebarker@gmail.com"
   gem.authors = ["Darcy Laycock", "John Barker"]
-  gem.add_runtime_dependency 'activesupport'
-  gem.add_runtime_dependency 'activerecord'
-  gem.add_development_dependency 'activesupport'
-  gem.add_development_dependency 'activerecord'
+  gem.add_runtime_dependency 'activesupport', '>= 2.3.5'
+  gem.add_runtime_dependency 'activerecord', '>= 2.3.5'
+  gem.add_development_dependency 'activesupport', '>= 2.3.5'
+  gem.add_development_dependency 'activerecord', '>= 2.3.5'
 end
 Jeweler::RubygemsDotOrgTasks.new
 

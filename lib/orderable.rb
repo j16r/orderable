@@ -19,8 +19,10 @@ module Orderable
       self.orderable_field = field.to_sym
     end
     
-    def update_order(id_array = nil)
-      id_array = Array(id_array).flatten.reject(&:blank?).map(&:to_i).uniq
+    def update_order(*id_array)
+      id_array = Array.wrap(id_array).flatten.reject(&:blank?).map(&:to_i).uniq
+      return if id_array.blank?
+      puts "Id array: '#{id_array.inspect}'"
       update_all orderable_sql_for_ids(id_array), ['id IN (?)', id_array]
     end
 
@@ -34,11 +36,15 @@ module Orderable
 
     def orderable_sql_for_ids(ids)
       ids = ids.join(",")
-      case Orderable.adapter
+      case adapter = Orderable.adapter
       when /^mysql/
         ["#{quoted_column} = FIND_IN_SET(id, ?)", ids]
       when /^postgres/
         ["#{quoted_column} = STRPOS(?, ','||id||',')", ",#{ids},"]
+      #when /^sqlite/
+        #["#{quoted_column} = "]
+      else
+        raise ArgumentError, "The database adapter #{adapter} is not supported by orderable"
       end
     end
 
